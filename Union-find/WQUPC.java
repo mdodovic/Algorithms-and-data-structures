@@ -12,6 +12,11 @@ public class WQUPC  extends UnionFind{
 			sz[i] = 1;
 		}
 	}
+
+    public int find(int i) {
+        return root(i);
+    }
+
 	
 	private int root(int i) {
 		while(i != id[i]) {

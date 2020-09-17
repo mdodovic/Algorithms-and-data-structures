@@ -13,6 +13,10 @@ public class WeightedQuickUnionUF  extends UnionFind {
 		}
 	}
 	
+	public int find(int i) {
+	    return root(i);
+	}
+	
 	private int root(int i) {
 		while(i != id[i])
 			i = id[i];

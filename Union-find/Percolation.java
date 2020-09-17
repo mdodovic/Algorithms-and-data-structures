@@ -1,6 +1,6 @@
+package unionFind;
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.WeightedQuickUnionUF;
-
+import unionFind.WeightedQuickUnionUF;
 public class Percolation {
 
     private final int n;

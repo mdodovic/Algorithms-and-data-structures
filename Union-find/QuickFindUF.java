@@ -9,6 +9,10 @@ public class QuickFindUF extends UnionFind{
 		for(int i = 0; i < N; i++)
 			id[i] = i;
 	}
+
+	public int find(int i) {
+        return id[i];
+    }
 	
 	public boolean connected(int p, int q) {
 		return id[p] == id[q];

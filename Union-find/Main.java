@@ -9,10 +9,10 @@ public class Main {
 			if (!uf.connected(p, q))
 			{
 				uf.union(p, q);
-//				System.out.println(p + " " + q);
+				// System.out.println(p + " " + q);
 			}
 			else {
-//				System.out.println(p + " and " + q + " are in the same component");
+			    // System.out.println(p + " and " + q + " are in the same component");
 			}
 		}		
 		
@@ -79,28 +79,10 @@ public class Main {
 			else {
 				System.out.println(p + " and " + q + " are in the same component");
 			}
-			
-			/*
-			int j;
-			for(j = 0; j < uf.id.length; j++) {
-				System.out.print(uf.id[j] + " ");				
-			}
-			System.out.println();
-			for(j = 0; j < uf.id.length; j++) {
-				System.out.print(uf.sz[j] + " ");				
-			}
-			System.out.println();
-			for(j = 0; j < uf.id.length; j++) {
-				System.out.print(uf.max[j] + " ");				
-			}
-			System.out.println();
-			*/
 		}
-
 		
 		for(int element = 0; element < N; element++)
 			System.out.print(uf.find(element) + " ");
 			
-		
 	}
 }

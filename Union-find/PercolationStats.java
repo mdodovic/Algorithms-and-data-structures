@@ -1,3 +1,4 @@
+package unionFind;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
@@ -18,8 +19,7 @@ public class PercolationStats {
      * @param n size of n-by-n grid
      * @param trials number of independent attempts
      * @throws IllegalArgumentException if n <= 0 or trials <= 0
-     */
-    
+     */    
     public PercolationStats(int n, int trials) {
         if (n <= 0 || trials <= 0)
             throw new IllegalArgumentException();
