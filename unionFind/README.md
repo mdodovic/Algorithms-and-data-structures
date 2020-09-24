@@ -8,3 +8,7 @@ Given a porous landscape (black) with water (blue) on the surface, under what co
 
 To estimate the percolation threshold (value p* such that when p > p* system cetrainly percolates, and for p < p* system almost never percolates) statistical Monte Carlo simulation is implemented.
 
+![java symbol](https://user-images.githubusercontent.com/32821985/94189340-e51d0080-feaa-11ea-8522-9ff09097b4d5.png)
+![eagle](https://user-images.githubusercontent.com/32821985/94189336-e4846a00-feaa-11ea-9798-9583882adfe6.png)
+![jerry without tom](https://user-images.githubusercontent.com/32821985/94189342-e51d0080-feaa-11ea-86f7-32f376da2235.png)
+
