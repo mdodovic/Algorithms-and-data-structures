@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
     
@@ -21,7 +22,7 @@ public class Deque<Item> implements Iterable<Item> {
     
     public void addFirst(Item item) {
         if (item == null)
-            throw new IllegalArgumentException("Can't add null to the deque.");
+            throw new IllegalArgumentException("Cannot add null-pointer to the deque.");
         
         if (first == null) {
             Node<Item> tmp = new Node<>();    
@@ -51,18 +52,73 @@ public class Deque<Item> implements Iterable<Item> {
     // add the item to the back
     public void addLast(Item item) {
         if (item == null)
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Cannot add null-pointer to the deque.");
+        
+        if (first == null) {
+            Node<Item> tmp = new Node<>();    
+            tmp.value = item;
+        
+            tmp.next = null;
+            tmp.prev = null;
+            
+            this.first = tmp;
+            this.last = tmp;
+
+        } else { 
+            Node<Item> tmp = last;
+            
+            last = new Node<>();    
+            last.value = item;
+            
+            last.prev = tmp;
+            last.next = null;
+
+            tmp.next = last;
+            
+        }
+        size++;        
         
     }
 
-    // remove and return the item from the front
     public Item removeFirst() {
-        return null;
+        if (first == null) {
+            throw new NoSuchElementException("Cannot remove an Item from empty deque.");
+        }
+
+        Node<Item> tmp = first;
+        
+        first = first.next;
+        
+        if (first == null) {
+            last = null;
+        } else {
+            first.prev = null;
+        }
+        
+        size --;
+        
+        return tmp.value;        
     }
 
     // remove and return the item from the back
     public Item removeLast() {
-        return null;
+        if (last == null) {
+            throw new NoSuchElementException("Cannot remove an Item from empty deque.");
+        }
+
+        Node<Item> tmp = last;
+        
+        last = last.prev;
+        
+        if (last == null) {
+            first = null;
+        } else {
+            last.next = null;
+        }
+        
+        size --;
+        
+        return tmp.value;        
     }
 
     // return an iterator over items in order from front to back
