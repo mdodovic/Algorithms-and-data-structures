@@ -150,7 +150,24 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
+        Deque<Integer> myDeque = new Deque<Integer>();
         
+        myDeque.addFirst(10);
+        myDeque.addFirst(13);
+        myDeque.addLast(5);
+
+        System.out.println("Size: " + myDeque.size());
+
+        Iterator<Integer> it = myDeque.iterator();
+        
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+        myDeque.removeLast();
+        myDeque.removeFirst();
+        myDeque.removeFirst();
+        
+        System.out.println("Size: " + myDeque.size());
     }
 
 }
