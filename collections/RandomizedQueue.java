@@ -154,5 +154,4 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         
         System.out.println("Size: " + myRQ.size());
     }
-
 }
