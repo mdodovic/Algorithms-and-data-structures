@@ -7,7 +7,7 @@ public class Deque<Item> implements Iterable<Item> {
     private Node<Item> last;
     private int size = 0;
     
-    private static class Node <Item> {
+    private static class Node<Item> {
         private Item value;
         private Node<Item> next, prev;
     }
@@ -49,7 +49,6 @@ public class Deque<Item> implements Iterable<Item> {
         size++;        
     }
 
-    // add the item to the back
     public void addLast(Item item) {
         if (item == null)
             throw new IllegalArgumentException("Cannot add null-pointer to the deque.");
@@ -95,12 +94,11 @@ public class Deque<Item> implements Iterable<Item> {
             first.prev = null;
         }
         
-        size --;
+        size--;
         
         return tmp.value;        
     }
 
-    // remove and return the item from the back
     public Item removeLast() {
         if (last == null) {
             throw new NoSuchElementException("Cannot remove an Item from empty deque.");
@@ -116,17 +114,41 @@ public class Deque<Item> implements Iterable<Item> {
             last.next = null;
         }
         
-        size --;
+        size--;
         
         return tmp.value;        
     }
 
-    // return an iterator over items in order from front to back
+    private class DequeIterator implements Iterator<Item> {
+
+        private Node<Item> current = first;
+        
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public Item next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException("No next element available.");
+            }
+            
+            Item value = current.value;
+            current = current.next;
+            return value;
+        }
+        
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Operation remove is not supported");
+        }
+    }
+    
     public Iterator<Item> iterator() {
-        return null;
+        return new DequeIterator();
     }
 
-    // unit testing (required)
     public static void main(String[] args) {
         
     }
