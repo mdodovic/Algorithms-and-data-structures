@@ -156,18 +156,18 @@ public class Deque<Item> implements Iterable<Item> {
         myDeque.addFirst(13);
         myDeque.addLast(5);
 
-        System.out.println("Size: " + myDeque.size());
+        // System.out.println("Size: " + myDeque.size());
 
         Iterator<Integer> it = myDeque.iterator();
         
         while(it.hasNext()) {
-            System.out.println(it.next());
+            it.next();
         }
         myDeque.removeLast();
         myDeque.removeFirst();
         myDeque.removeFirst();
         
-        System.out.println("Size: " + myDeque.size());
+        // System.out.println("Size: " + myDeque.size());
     }
 
 }
