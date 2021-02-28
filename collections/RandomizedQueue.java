@@ -8,7 +8,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private Item[] items;
     private int size = 0;
 
-    @SuppressWarnings("unchecked")
     public RandomizedQueue() {
         items = (Item[]) new Object[1];
     }
@@ -37,7 +36,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         return items.length > 1 && size <= items.length / 4;
     }
     
-    @SuppressWarnings("unchecked")
     private void resizeStorage(int newSize) {
         Item[] newItemStorage = (Item[]) new Object[newSize];
         for (int i = 0; i < size; i++) {
@@ -102,7 +100,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             StdRandom.shuffle(iteratorItems);
         }
 
-        @SuppressWarnings("unchecked")
         private Item[] copyRandomQueueItems() {
             Item[] copiedItems = (Item[]) new Object[size];
             for (int i = 0; i < size; i++) {
@@ -139,19 +136,19 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         myRQ.enqueue(13);
         myRQ.enqueue(5);
 
-        // System.out.println("Size: " + myRQ.size());
+        System.out.println("Size: " + myRQ.size());
 
         Iterator<Integer> it = myRQ.iterator();
         
-        while(it.hasNext()) {
-            it.next();
+        while (it.hasNext()) {
+            System.out.println(it.next());
         }
         
-        myRQ.dequeue();
-        myRQ.dequeue();
-        myRQ.dequeue();
+        System.out.println(myRQ.dequeue());
+        System.out.println(myRQ.dequeue());
+        System.out.println(myRQ.dequeue());
         
-        // System.out.println("Size: " + myRQ.size());
+        System.out.println("Size: " + myRQ.size());
     }
 
 }
