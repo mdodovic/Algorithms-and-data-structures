@@ -1,3 +1,4 @@
+package collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -8,6 +9,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private Item[] items;
     private int size = 0;
 
+    @SuppressWarnings("unchecked")
     public RandomizedQueue() {
         items = (Item[]) new Object[1];
     }
@@ -36,6 +38,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         return items.length > 1 && size <= items.length / 4;
     }
     
+    @SuppressWarnings("unchecked")
     private void resizeStorage(int newSize) {
         Item[] newItemStorage = (Item[]) new Object[newSize];
         for (int i = 0; i < size; i++) {
@@ -47,7 +50,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     
     public void enqueue(Item item) {
         if (item == null) {
-            throw new NullPointerException("Cannot add null-pointer to queue.");
+            throw new IllegalArgumentException("Cannot add null-pointer to queue.");
         }
 
         if (isStorageFull()) {
@@ -92,7 +95,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private class RandomIterator implements Iterator<Item> {
 
-        private Item[] iteratorItems;
+        private final Item[] iteratorItems;
         private int index;
 
         public RandomIterator() {
@@ -100,6 +103,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             StdRandom.shuffle(iteratorItems);
         }
 
+        @SuppressWarnings("unchecked")
         private Item[] copyRandomQueueItems() {
             Item[] copiedItems = (Item[]) new Object[size];
             for (int i = 0; i < size; i++) {

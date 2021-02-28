@@ -1,4 +1,6 @@
+package collections;
 import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Permutation {
 
@@ -6,16 +8,16 @@ public class Permutation {
 
         int k = Integer.parseInt(args[0]);
 
-        RandomizedQueue<String> randomizedQueue = new RandomizedQueue<>();
-/*        for (String string : strings) {
-            String s = StdIn.readString()();
+        RandomizedQueue<String> randQueue = new RandomizedQueue<String>();
 
-            randomizedQueue.enqueue(string);
+        while (!StdIn.isEmpty()) {
+            String s = StdIn.readString();
+            randQueue.enqueue(s);
         }
 
         for (int i = 0; i < k; i++) {
-            System.out.println(randomizedQueue.dequeue());
+            StdOut.println(randQueue.dequeue());
         }
-*/    }
+    }
 
 }
