@@ -1,35 +1,51 @@
 import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
-
-    private Node first, last;
-    private int size;
     
-    private class Node {
-        Item item;
-        Node next, prev;
+    private Node<Item> first;
+    private Node<Item> last;
+    private int size = 0;
+    
+    private static class Node <Item> {
+        private Item value;
+        private Node<Item> next, prev;
     }
     
-    // construct an empty deque
-    public Deque() {
-        
-    }
-
-    // is the deque empty?
     public boolean isEmpty() {
-        return first == null;
+        return size == 0;
     }
 
-    // return the number of items on the deque
     public int size() {
         return size;
     }
-
-    // add the item to the front
+    
     public void addFirst(Item item) {
         if (item == null)
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Can't add null to the deque.");
         
+        if (first == null) {
+            Node<Item> tmp = new Node<>();    
+            tmp.value = item;
+        
+            tmp.next = null;
+            tmp.prev = null;
+            
+            this.first = tmp;
+            this.last = tmp;
+
+        } else { 
+            Node<Item> tmp = first;
+            
+            first = new Node<>();    
+            first.value = item;
+            
+            first.prev = null;
+            first.next = tmp;
+
+            tmp.prev = first;
+            
+        }
+        size++;        
     }
 
     // add the item to the back
